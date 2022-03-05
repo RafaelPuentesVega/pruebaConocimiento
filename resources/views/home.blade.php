@@ -2,6 +2,7 @@
 @extends('layouts.apps')
 @section('css')
 <title>Home</title>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.css" rel="stylesheet" media="all">
 
@@ -93,44 +94,7 @@
 
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.js"></script>
-<script>
-$(document).ready( function () {
-    $('#products').DataTable();
-
-} );
-
-function consultarProducto(id) {
-
-
-$.ajax({
-    url: 'consultarProducto',
-    data: {
-        "_token": "{{ csrf_token() }}",
-        id:id,
-    },
-    type: 'POST',
-    dataType: 'json',
-    success: function (json) {
-        if (json.mensaje === "ok") {
-            nombreProducto = json.dataProducto.nombre_producto;
-            descripcion = json.dataProducto.descripcion;
-            precio = json.dataProducto.precio;
-            fecha = json.dataProducto.fecha_publicacion;
-
-            toastr["success"]("<h6>" + nombreProducto + "<br>"+ descripcion + "<br>"+  precio + "<br>"+ fecha + "</h6>", "INFORMACION")
-
-        }
-    },
-    error: function (xhr, status) {
-        alert('Disculpe, existió un problema en el servidor - Recargue la Pagina');
-    },
-    complete: function (xhr, status) {
-    }
-});
-
-}
-</script>
-
+<script src="/js/home.js"></script>
 
 @endsection
 
