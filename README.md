@@ -1,3 +1,29 @@
+<div>
+    Pasos a instalar a local
+*Crear una base de datos con el nombre = pruebalaravel8 (si es necesario de agrega el usuario de la base de datos en el .ENV
+Luego de tener conexion con la base de datos se ejecutan los siguientes comandos.
+*ejecutar los siguientes comandos:
+*php artisan migrate 
+*php artisan db:seed
+*php artisan serve
+
+Luego de inicializado el proyecto, abrimos la url en el  navegador.
+
+-Realizamos el registro de un usuario para tener acceso al sistema.
+-luego nos logueamos con las credenciales registradas anteriormente.
+-En el sistema podemos encontras una tabla con la libreria DataTables, con todos los productos registrados.
+-tenemos 1 boton de salir , crear producto , eliminar producto y al dar click sobre el nombre del producto nos muestra un alert mostrando la informacion del producto (toastr)
+-Cada peticion, nos registra en la base de datos un hora.
+-Se trabajo con bootstrap en su ultima version 5.
+
+Por ultimo se ejecuta el siguiente comando
+*php artisan schedule:work
+El cual cada 2 minutos nos inserta en la base de datos un registro.
+
+En la base de datos se puede observar los datos que se generan automatico y en la tabla peticiones. </div>
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
